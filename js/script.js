@@ -56,6 +56,10 @@ const carousel = new Vue({
         displayActiveImage(item) {
             const verify = item.title === this.slides[this.slideIndex].title;
             return verify ? "thumb active" : "thumb"
+        },
+        showSlide(item, index) {
+            const clickImage = index;
+            this.slideIndex = clickImage;
         }
     }
 });
