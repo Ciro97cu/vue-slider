@@ -29,7 +29,7 @@
                 <div class="thumbs">
                     <div @click="previousSlide" class="prev"></div>
                     <div @click="nextSlide" class="next"></div>
-                    <div v-for="item in slides" class="thumb" class="active">
+                    <div v-for="item in slides" :class="displayActiveImage(item)">
                         <img :src="item.image" :alt="item.title" />
                     </div>
                 </div>

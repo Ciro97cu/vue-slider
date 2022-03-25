@@ -35,8 +35,6 @@ const slides = [
 ];
 
 const carousel = new Vue({
-
-
     el: "#app",
     data: {
         slides,
@@ -44,19 +42,20 @@ const carousel = new Vue({
     },
     methods: {
         previousSlide() {
-            console.log("mi hai cliccato");
             this.slideIndex--
             if (this.slideIndex < 0) {
                 this.slideIndex = this.slides.length - 1;
             }
         },
         nextSlide() {
-            console.log("mi hai cliccato")
             this.slideIndex++
             if (this.slideIndex > this.slides.length - 1) {
                 this.slideIndex = 0;
             }
+        },
+        displayActiveImage(item) {
+            const verify = item.title === this.slides[this.slideIndex].title;
+            return verify ? "thumb active" : "thumb"
         }
     }
-
 });
