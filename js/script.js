@@ -34,4 +34,29 @@ const slides = [
     }
 ];
 
-console.log(slides);
+const carousel = new Vue({
+
+
+    el: "#app",
+    data: {
+        slides,
+        slideIndex: 0,
+    },
+    methods: {
+        previousSlide() {
+            console.log("mi hai cliccato");
+            this.slideIndex--
+            if (this.slideIndex < 0) {
+                this.slideIndex = this.slides.length - 1;
+            }
+        },
+        nextSlide() {
+            console.log("mi hai cliccato")
+            this.slideIndex++
+            if (this.slideIndex > this.slides.length - 1) {
+                this.slideIndex = 0;
+            }
+        }
+    }
+
+});
