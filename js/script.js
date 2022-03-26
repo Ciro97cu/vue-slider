@@ -60,6 +60,11 @@ const carousel = new Vue({
         showSlide(index) {
             const clickImage = index;
             this.slideIndex = clickImage;
+        },
+        scrollingSlides() {
+            const prova = setInterval(() => { this.nextSlide() }, 3000)
         }
-    }
+    },
+    mounted() { this.scrollingSlides() }
 });
+
