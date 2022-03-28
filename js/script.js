@@ -39,32 +39,36 @@ const carousel = new Vue({
     data: {
         slides,
         slideIndex: 0,
+        scrollSlide: undefined,
     },
     methods: {
-        previousSlide() {
+        previousSlide: function () {
             this.slideIndex--
             if (this.slideIndex < 0) {
                 this.slideIndex = this.slides.length - 1;
             }
         },
-        nextSlide() {
+        nextSlide: function () {
             this.slideIndex++
             if (this.slideIndex > this.slides.length - 1) {
                 this.slideIndex = 0;
             }
         },
-        displayActiveImage(item) {
+        displayActiveImage: function (item) {
             const verify = item.title === this.slides[this.slideIndex].title;
             return verify ? "thumb active" : "thumb"
         },
-        showSlide(index) {
+        imageOnClick: function (index) {
             const clickImage = index;
             this.slideIndex = clickImage;
         },
-        scrollingSlides() {
-            setInterval(() => { this.nextSlide() }, 3000)
+        scrollingSlides: function () {
+            this.scrollSlide = setInterval(() => {
+                this.nextSlide();
+            }, 3000);
+        },
+        stopScrollingSlides: function () {
+            clearInterval(this.scrollSlide);
         }
-    },
-    mounted() { this.scrollingSlides() }
+    }
 });
-
