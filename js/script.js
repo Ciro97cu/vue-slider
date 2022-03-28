@@ -59,8 +59,7 @@ const carousel = new Vue({
             return verify ? "thumb active" : "thumb"
         },
         imageOnClick: function (index) {
-            const clickImage = index;
-            this.slideIndex = clickImage;
+            this.slideIndex = index;
         },
         scrollingSlides: function () {
             this.scrollSlide = setInterval(() => {
